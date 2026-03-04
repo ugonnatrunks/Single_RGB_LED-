@@ -14,15 +14,15 @@ This project implements a thread-safe, real-time pipeline on the **Nordic nRF528
 
 * **Multithreaded Architecture**: Features a high-priority producer thread for sampling and a main consumer thread for actuation.
 * **Thread-Safe IPC**: Shared data is protected by a Zephyr Mutex to prevent race conditions.
-* **Signal Conditioning**: Implements a (25 units) to filter analog noise and prevent PWM jitter.
+* **Signal Conditioning**: Implements a (25 units) filter to filter analog noise and prevent PWM jitter.
 * **Boundary Clamping**: Soft-clamping logic ensures stable Full-Off and Full-On states at the voltage rail limits.
-* **Real-time Monitoring**: Synchronized console output via for live debugging of raw and filtered values.
+* **Real-time Monitoring**: Synchronized console output for live debugging of raw and filtered values.
 
 ## 📍 The Process
 
-The goal of this project was to create a responsive system where analog sensor data (like a potentiometer) directly controls digital actuators (like LEDs) without blocking the CPU. By separating the sensing and actuation into two distinct threads, the system remains stable and responsive even at high sample rates. 
+The goal of this project was to create a responsive system in which analog sensor data (e.g., from a potentiometer) directly controls digital actuators (e.g., LEDs) without blocking the CPU. By separating the sensing and actuation into two distinct threads, the system remains stable and responsive even at high sample rates. 
 
-I leveraged the nRF52832's 12-bit SAADC to obtain high-resolution input (**0 to 4095**). To ensure a smooth user experience, I implemented a custom deadzone filter and a mutex-locking mechanism that allows the peripheral thread to update sensor data only when a significant physical change is detected.
+I leveraged the nRF52832's 12-bit SAADC to obtain high-resolution input (0-4095). To ensure a smooth user experience, I implemented a custom deadzone filter and a mutex that prevents the peripheral thread from updating sensor data unless a significant physical change is detected.
 
 
 ## 🚦 Running the Project
@@ -48,4 +48,4 @@ Actuated: Channel 1 Raw = 2050, Channel 2 Raw = 1012, Channel 4 Raw = 15
 https://github.com/user-attachments/assets/8b3ed952-ab9a-4a43-8b6d-0908eafeb431
 
 
-*Demonstration of Thread-Safe Peripheral Interfacing in Zephyr RTOS.*
+*Demonstration of Thread-Safe Peripheral Interfacing in Zephyr RTOS*
