@@ -25,13 +25,13 @@ The goal of this project was to create a responsive system where analog sensor d
 I leveraged the nRF52832's 12-bit SAADC to obtain high-resolution input (**0 to 4095**). To ensure a smooth user experience, I implemented a custom deadzone filter and a mutex-locking mechanism that allows the peripheral thread to update sensor data only when a significant physical change is detected.
 
 
-
 ## 🚦 Running the Project
 
 1. **Set up the Environment**: Ensure you have the **nRF Connect SDK** and `west` tool installed.
 2. **Clone the repository**:
    ```bash
-   git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+   git clone [https://github.com/ugonnatrunks/Single_RGB_LED.git](https://github.com/ugonnatrunks/Single_RGB_LED.git)
+
 
 ## 📸 Preview
 
